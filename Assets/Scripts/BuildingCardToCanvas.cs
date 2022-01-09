@@ -6,13 +6,15 @@ using TMPro;
 public class BuildingCardToCanvas : MonoBehaviour
 {
     public BuildingCard bc;
-    public int goldC;
-    public int gemC;
-    public Image asd;
+    private int goldC;
+    private int gemC;
+    private Image buildingCardBorder;
+    private CurrencyScript CS;
 
     void Start()
     {
-        asd = GetComponent<Image>();
+        CS= GameObject.Find("/GameMaster").GetComponent<CurrencyScript>();
+        buildingCardBorder = GetComponent<Image>();
         Debug.Log(bc.name);
         transform.GetChild(0).gameObject.GetComponent<RawImage>().texture=bc.image.texture;
         var goldGO = transform.GetChild(1).GetChild(0).gameObject;
@@ -43,15 +45,17 @@ public class BuildingCardToCanvas : MonoBehaviour
 
     void Update()
     {
+        goldC = CS.Gold;
+        gemC = CS.Gem;
         if (goldC >= bc.costGold)
         {
 
-            asd.color = new Color(0.6886792f, 0.6886792f, 0.6886792f, 1f);
+            buildingCardBorder.color = new Color(0.6886792f, 0.6886792f, 0.6886792f, 1f);
 
         }
         else
         {
-            asd.color = new Color(0.286792f, 0.286792f, 0.286792f, 1f);
+            buildingCardBorder.color = new Color(0.286792f, 0.286792f, 0.286792f, 1f);
 
         }
     }

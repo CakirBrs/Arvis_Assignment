@@ -1006,9 +1006,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bc: {fileID: 11400000, guid: 09cb078d9ef72604bb4f1f10d44060a5, type: 2}
-  goldC: 0
-  gemC: 0
-  asd: {fileID: 0}
 --- !u!114 &292585250
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1227,6 +1224,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Gold: 0
   Gem: 0
+  goldText: {fileID: 1746929640}
+  GemText: {fileID: 1740796275}
 --- !u!4 &342360152
 Transform:
   m_ObjectHideFlags: 0
@@ -4206,9 +4205,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bc: {fileID: 11400000, guid: 7e5649026b90ff643b48874db2f8e1c2, type: 2}
-  goldC: 0
-  gemC: 0
-  asd: {fileID: 0}
 --- !u!114 &1502068284
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4657,9 +4653,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bc: {fileID: 11400000, guid: 90478b91853c1e74bb59b662f7571150, type: 2}
-  goldC: 0
-  gemC: 0
-  asd: {fileID: 0}
 --- !u!114 &1630234571
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5171,7 +5164,7 @@ GameObject:
   - component: {fileID: 1740796276}
   - component: {fileID: 1740796275}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: GemText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5305,7 +5298,7 @@ GameObject:
   - component: {fileID: 1746929641}
   - component: {fileID: 1746929640}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: GoldText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5725,9 +5718,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bc: {fileID: 11400000, guid: af8ef41e9381d1846822ecca110b47df, type: 2}
-  goldC: 0
-  gemC: 0
-  asd: {fileID: 0}
 --- !u!114 &1889568273
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6099,9 +6089,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bc: {fileID: 11400000, guid: 5247b9ec13436484b954437237543cc7, type: 2}
-  goldC: 0
-  gemC: 0
-  asd: {fileID: 0}
 --- !u!114 &2000082397
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6540,9 +6527,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bc: {fileID: 11400000, guid: 7e42f1e41032a4a4bbbe1fa302f01f7d, type: 2}
-  goldC: 2
-  gemC: 2
-  asd: {fileID: 0}
 --- !u!1 &2130425457
 GameObject:
   m_ObjectHideFlags: 0
