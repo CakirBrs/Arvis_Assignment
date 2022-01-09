@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b53c70ce0cbdf540b20197eeff0832f, type: 3}
+  m_Name: Building 1
+  m_EditorClassIdentifier: 
+  name: test
+  image: {fileID: 21300000, guid: f1d636a4c0562e84286c19670d6cff43, type: 3}
+  costGold: 1
+  costGem: 0
+  resorceGenerationDuration: 3
+  generatedGold: 1
+  generatedGem: 0
+  shapeOfBuilding: 0
