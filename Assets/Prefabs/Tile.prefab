@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ec5affd45c98ae849a16717a809662b2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -97,8 +97,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1828febdefb4c3c47bbd3c5281140954, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseColor: {r: 0.10981619, g: 1, b: 0, a: 1}
-  offsetColor: {r: 0.059045497, g: 0.5377358, b: 0, a: 1}
+  baseColor: {r: 0.5849056, g: 0.5849056, b: 0.5849056, a: 1}
+  offsetColor: {r: 0.41509432, g: 0.41509432, b: 0.41509432, a: 1}
   spriteRenderer: {fileID: 8485148093547597961}
   highlight: {fileID: 2817147907658005826}
 --- !u!61 &3579868536963013100
@@ -198,7 +198,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ec5affd45c98ae849a16717a809662b2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0.4627451}
   m_FlipX: 0
   m_FlipY: 0
