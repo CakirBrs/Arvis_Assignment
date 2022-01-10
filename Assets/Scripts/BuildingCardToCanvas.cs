@@ -47,7 +47,7 @@ public class BuildingCardToCanvas : MonoBehaviour
     {
         goldC = _currencyScript.Gold;
         gemC = _currencyScript.Gem;
-        if (goldC >= _buildingCard.costGold)
+        if (goldC >= _buildingCard.costGold && gemC >= _buildingCard.costGem)
         {
 
             buildingCardBorder.color = new Color(0.6886792f, 0.6886792f, 0.6886792f, 1f);

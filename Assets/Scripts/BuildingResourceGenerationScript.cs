@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BuildingResourceGenerationScript : MonoBehaviour
 {
@@ -10,6 +11,8 @@ public class BuildingResourceGenerationScript : MonoBehaviour
     private int generatedGold;
     private float generateTime;
     private CurrencyScript _currencyScript;
+    public GameObject sliderGO;
+    private Slider slider;
 
     private void Start()
     {
@@ -18,10 +21,13 @@ public class BuildingResourceGenerationScript : MonoBehaviour
         generatedGold = _buildingCard.generatedGold;
         generateTime = _buildingCard.resorceGenerationDuration;
         _time = 0f;
+        slider = sliderGO.GetComponent<Slider>();
+        slider.maxValue = generateTime;
     }
     private void Update()
     {
         _time += Time.deltaTime;
+        slider.value = _time;
         if(_time>= generateTime)
         {
             AddCurrency();
