@@ -5,34 +5,34 @@ using UnityEngine.UI;
 using TMPro;
 public class BuildingCardToCanvas : MonoBehaviour
 {
-    public BuildingCard bc;
+    public BuildingCard _buildingCard;
     private int goldC;
     private int gemC;
     private Image buildingCardBorder;
-    private CurrencyScript CS;
+    private CurrencyScript _currencyScript;
 
     void Start()
     {
-        CS= GameObject.Find("/GameMaster").GetComponent<CurrencyScript>();
+        _currencyScript= GameObject.Find("/GameMaster").GetComponent<CurrencyScript>();
         buildingCardBorder = GetComponent<Image>();
         
-        transform.GetChild(0).gameObject.GetComponent<RawImage>().texture=bc.image.texture;
+        transform.GetChild(0).gameObject.GetComponent<RawImage>().texture=_buildingCard.image.texture;
         var goldGO = transform.GetChild(1).GetChild(0).gameObject;
         var gemGO = transform.GetChild(1).GetChild(1).gameObject;
-        if (bc.costGem > 0)
+        if (_buildingCard.costGem > 0)
         {
             gemGO.SetActive(true);
-            gemGO.transform.GetChild(1).gameObject.GetComponent<TextMeshProUGUI>().text = bc.costGem.ToString();
+            gemGO.transform.GetChild(1).gameObject.GetComponent<TextMeshProUGUI>().text = _buildingCard.costGem.ToString();
         }
         else
         {
             gemGO.SetActive(false);
         }
 
-        if (bc.costGold > 0)
+        if (_buildingCard.costGold > 0)
         {
             goldGO.SetActive(true);
-            goldGO.transform.GetChild(1).gameObject.GetComponent<TextMeshProUGUI>().text = bc.costGold.ToString();
+            goldGO.transform.GetChild(1).gameObject.GetComponent<TextMeshProUGUI>().text = _buildingCard.costGold.ToString();
 
         }
         else
@@ -45,9 +45,9 @@ public class BuildingCardToCanvas : MonoBehaviour
 
     void Update()
     {
-        goldC = CS.Gold;
-        gemC = CS.Gem;
-        if (goldC >= bc.costGold)
+        goldC = _currencyScript.Gold;
+        gemC = _currencyScript.Gem;
+        if (goldC >= _buildingCard.costGold)
         {
 
             buildingCardBorder.color = new Color(0.6886792f, 0.6886792f, 0.6886792f, 1f);
