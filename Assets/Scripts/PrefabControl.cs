@@ -23,6 +23,25 @@ public class PrefabControl : MonoBehaviour
     }
     private void Update()
     {
+
+        if (transform.position.x > 9)
+        {
+            isAvailable = false;
+        }
+        if (transform.position.y > 9)
+        {
+            isAvailable = false;
+        }
+        if (transform.position.x < 0)
+        {
+            isAvailable = false;
+        }
+        if (transform.position.y < 0)
+        {
+            isAvailable = false;
+        }
+
+
         if (isAvailable)
         {
             foreach(SpriteRenderer spriteRenderer in spirteList)
