@@ -37,8 +37,17 @@ public class BuildingResourceGenerationScript : MonoBehaviour
 
     private void AddCurrency()
     {
-        _currencyScript.Gem += generatedGem;
-        _currencyScript.Gold += generatedGold;
+        var test = WorldSpaceToCanvas();
+        _currencyScript.GoldChange(generatedGold, test);
+        _currencyScript.GemChange(generatedGem, test);
+        
 
+    }
+    private Vector3 WorldSpaceToCanvas()
+    {
+
+        var cam = Camera.main;
+        Vector3 screenPos = cam.WorldToScreenPoint(transform.position);
+        return screenPos;
     }
 }

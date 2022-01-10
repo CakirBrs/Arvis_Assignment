@@ -102,8 +102,9 @@ public class PrefabControl : MonoBehaviour
             imageRawimage.texture = _buildingCard.image.texture;
             imageRawimage.color = Color.black;
             Destroy(GetComponent<PrefabControl>());
-            _currencyScript.Gem -= _buildingCard.costGem;
-            _currencyScript.Gold -= _buildingCard.costGold;
+            _currencyScript.GoldChange(_buildingCard.costGold,_currencyScript.GoldPos.position);
+            _currencyScript.GemChange(_buildingCard.costGem,_currencyScript.GemPos.position);
+            
 
             
 

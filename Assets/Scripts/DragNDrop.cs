@@ -79,7 +79,7 @@ public class DragNDrop : MonoBehaviour, IBeginDragHandler,IEndDragHandler,IDragH
         {
             rectTransform.anchoredPosition += eventData.delta;
             worldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            createdGO.transform.position = new Vector3(((int)worldPosition.x), ((int)worldPosition.y), 0f);
+            createdGO.transform.position = new Vector3(Mathf.RoundToInt(worldPosition.x), Mathf.RoundToInt(worldPosition.y), 0f);
         }
     }
 
