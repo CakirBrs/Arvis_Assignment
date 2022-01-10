@@ -15,7 +15,7 @@ public class BuildingCardToCanvas : MonoBehaviour
     {
         CS= GameObject.Find("/GameMaster").GetComponent<CurrencyScript>();
         buildingCardBorder = GetComponent<Image>();
-        Debug.Log(bc.name);
+        
         transform.GetChild(0).gameObject.GetComponent<RawImage>().texture=bc.image.texture;
         var goldGO = transform.GetChild(1).GetChild(0).gameObject;
         var gemGO = transform.GetChild(1).GetChild(1).gameObject;
