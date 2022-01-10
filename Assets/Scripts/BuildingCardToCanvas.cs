@@ -10,6 +10,7 @@ public class BuildingCardToCanvas : MonoBehaviour
     private int gemC;
     private Image buildingCardBorder;
     private CurrencyScript _currencyScript;
+    public bool isActive;
 
     void Start()
     {
@@ -49,12 +50,13 @@ public class BuildingCardToCanvas : MonoBehaviour
         gemC = _currencyScript.Gem;
         if (goldC >= _buildingCard.costGold && gemC >= _buildingCard.costGem)
         {
-
+            isActive = true;
             buildingCardBorder.color = new Color(0.6886792f, 0.6886792f, 0.6886792f, 1f);
 
         }
         else
         {
+            isActive = false;
             buildingCardBorder.color = new Color(0.286792f, 0.286792f, 0.286792f, 1f);
 
         }

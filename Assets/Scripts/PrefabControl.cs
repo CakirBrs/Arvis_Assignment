@@ -86,6 +86,8 @@ public class PrefabControl : MonoBehaviour
             _currencyScript.Gem -= _buildingCard.costGem;
             _currencyScript.Gold -= _buildingCard.costGold;
 
+            
+
             return true;
         }
         else
