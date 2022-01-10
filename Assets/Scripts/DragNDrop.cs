@@ -21,6 +21,8 @@ public class DragNDrop : MonoBehaviour, IBeginDragHandler,IEndDragHandler,IDragH
     public Vector3 worldPosition;
     GameObject createdGO;
 
+    BuildingCard _buildingCard;
+
     private void Awake()
     {
         
@@ -30,7 +32,7 @@ public class DragNDrop : MonoBehaviour, IBeginDragHandler,IEndDragHandler,IDragH
         GameObject _prefab;
         draggedIcon.SetActive(true);
         var BCTCscirpt = GetComponent<BuildingCardToCanvas>();
-        var _buildingCard = BCTCscirpt._buildingCard;
+        _buildingCard = BCTCscirpt._buildingCard;
         draggedIcon.GetComponent<RawImage>().texture = _buildingCard.image.texture;
         if(_buildingCard.shapeOfBuilding== BuildingCard.shapeOfBuildingType.Shape1)
         {
@@ -74,8 +76,9 @@ public class DragNDrop : MonoBehaviour, IBeginDragHandler,IEndDragHandler,IDragH
     public void OnEndDrag(PointerEventData eventData)
     {
         draggedIcon.SetActive(false);
-
-        var _bool = createdGO.GetComponent<PrefabControl>().PlaceBuilding();
+        var _prefabControl = createdGO.GetComponent<PrefabControl>();
+        _prefabControl._buildingCard = _buildingCard;
+        var _bool = _prefabControl.PlaceBuilding();
         if (!_bool)
         {
             Destroy(createdGO);
