@@ -4,11 +4,11 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class DragNDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler,IEndDragHandler,IDragHandler
+public class DragNDrop : MonoBehaviour, IBeginDragHandler,IEndDragHandler,IDragHandler
 {
     private RectTransform rectTransform;
     [SerializeField]
-    private GameObject go;
+    private GameObject draggedIcon;
     [SerializeField]
     private GameObject Prefab1x2x;
     [SerializeField]
@@ -18,45 +18,47 @@ public class DragNDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler,I
     [SerializeField]
     private GameObject Prefab3x2x;
 
+    public Vector3 worldPosition;
+    GameObject createdGO;
+
     private void Awake()
     {
         
     }
     public void OnBeginDrag(PointerEventData eventData)
     {
-        GameObject obj;
-        Debug.Log("dragStart");
-        go.SetActive(true);
-        var BCtC = GetComponent<BuildingCardToCanvas>();
-        var bc = BCtC.bc;
-        go.GetComponent<RawImage>().texture = bc.image.texture;
-        if(bc.shapeOfBuilding== BuildingCard.shapeOfBuildingType.Shape1)
+        GameObject _prefab;
+        draggedIcon.SetActive(true);
+        var BCTCscirpt = GetComponent<BuildingCardToCanvas>();
+        var _buildingCard = BCTCscirpt._buildingCard;
+        draggedIcon.GetComponent<RawImage>().texture = _buildingCard.image.texture;
+        if(_buildingCard.shapeOfBuilding== BuildingCard.shapeOfBuildingType.Shape1)
         {
-            obj = Prefab1x2x;
+            _prefab = Prefab1x2x;
         }
-        else if (bc.shapeOfBuilding == BuildingCard.shapeOfBuildingType.Shape2)
+        else if (_buildingCard.shapeOfBuilding == BuildingCard.shapeOfBuildingType.Shape2)
         {
-            obj = Prefab2x;
+            _prefab = Prefab2x;
 
         }
-        else if (bc.shapeOfBuilding == BuildingCard.shapeOfBuildingType.Shape3)
+        else if (_buildingCard.shapeOfBuilding == BuildingCard.shapeOfBuildingType.Shape3)
         {
-            obj = Prefab2x2x;
+            _prefab = Prefab2x2x;
 
         }
-        else if (bc.shapeOfBuilding == BuildingCard.shapeOfBuildingType.Shape4)
+        else if (_buildingCard.shapeOfBuilding == BuildingCard.shapeOfBuildingType.Shape4)
         {
-            obj = Prefab3x2x;
+            _prefab = Prefab3x2x;
 
         }
         else
         {
-            obj = null;
+            _prefab = null;
 
         }
-        Instantiate(obj, new Vector3(0, 0), Quaternion.identity);
-        rectTransform = go.GetComponent<RectTransform>();
-        go.transform.position = Input.mousePosition;
+        createdGO= Instantiate(_prefab, new Vector3(0, 0), Quaternion.identity);
+        rectTransform = draggedIcon.GetComponent<RectTransform>();
+        draggedIcon.transform.position = Input.mousePosition;
         
 
 
@@ -64,20 +66,21 @@ public class DragNDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler,I
 
     public void OnDrag(PointerEventData eventData)
     {
-        Debug.Log("drag");
         rectTransform.anchoredPosition += eventData.delta;
+        worldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        createdGO.transform.position = new Vector3(((int)worldPosition.x), ((int)worldPosition.y), 0f);
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        go.SetActive(false);
+        draggedIcon.SetActive(false);
 
-        Debug.Log("dragStop");
-
+        var _bool = createdGO.GetComponent<PrefabControl>().PlaceBuilding();
+        if (!_bool)
+        {
+            Destroy(createdGO);
+        }
     }
 
-    public void OnPointerDown(PointerEventData eventData)
-    {
-        Debug.Log("Týk");
-    }
+    
 }
