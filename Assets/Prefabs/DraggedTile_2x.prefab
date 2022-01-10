@@ -95,6 +95,7 @@ GameObject:
   - component: {fileID: 3579868536963013100}
   - component: {fileID: 3963329122249046726}
   - component: {fileID: 690021729598876828}
+  - component: {fileID: 3811361731126198533}
   m_Layer: 0
   m_Name: DraggedTile_2x
   m_TagString: Buildings
@@ -207,6 +208,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isAvailable: 1
+  _buildingCard: {fileID: 0}
+  slider: {fileID: 3540756126211020346, guid: 2c64dd7d09ae72f4aa06cba9f4c2f7fe, type: 3}
 --- !u!50 &690021729598876828
 Rigidbody2D:
   serializedVersion: 4
@@ -228,3 +231,17 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
+--- !u!114 &3811361731126198533
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1404589414926779720}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b5661dcd33809a4f9a5688265377de4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _buildingCard: {fileID: 0}
+  sliderGO: {fileID: 0}
