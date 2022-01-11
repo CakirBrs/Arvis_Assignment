@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using TMPro;
 
-public class DragNDrop : MonoBehaviour, IBeginDragHandler,IEndDragHandler,IDragHandler
+public class DragNDrop : MonoBehaviour, IBeginDragHandler,IEndDragHandler,IDragHandler, IPointerEnterHandler, IPointerExitHandler
 {
     private RectTransform rectTransform;
     [SerializeField]
@@ -23,11 +24,13 @@ public class DragNDrop : MonoBehaviour, IBeginDragHandler,IEndDragHandler,IDragH
 
     BuildingCard _buildingCard;
     private bool isCardActive;
-
+    private GameObject InfoWindow;
+    [SerializeField]
+    private List<GameObject> miniBuildingIco = new List<GameObject>();
     private void Start()
     {
         draggedIcon = GameObject.Find("draggedObj");
-
+        InfoWindow = GameObject.Find("InfoWindow");
 
     }
     public void OnBeginDrag(PointerEventData eventData)
@@ -38,14 +41,12 @@ public class DragNDrop : MonoBehaviour, IBeginDragHandler,IEndDragHandler,IDragH
         {
             GameObject _prefab;
             draggedIcon.GetComponent<RawImage>().enabled = true;
-            var BCTCscirpt = GetComponent<BuildingCardToCanvas>();
-            _buildingCard = BCTCscirpt._buildingCard;
             draggedIcon.GetComponent<RawImage>().texture = _buildingCard.image.texture;
-            if (_buildingCard.shapeOfBuilding == BuildingCard.shapeOfBuildingType.Shape1)
+            if (_buildingCard.shapeOfBuilding == BuildingCard.shapeOfBuildingType.Shape2)
             {
                 _prefab = Prefab1x2x;
             }
-            else if (_buildingCard.shapeOfBuilding == BuildingCard.shapeOfBuildingType.Shape2)
+            else if (_buildingCard.shapeOfBuilding == BuildingCard.shapeOfBuildingType.Shape1)
             {
                 _prefab = Prefab2x;
 
@@ -104,5 +105,101 @@ public class DragNDrop : MonoBehaviour, IBeginDragHandler,IEndDragHandler,IDragH
             }
         }
     }
-    
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        var tasdasdaa = InfoWindow.transform.GetChild(0);
+        
+        tasdasdaa.gameObject.SetActive(true);
+
+        var buildingType = tasdasdaa.gameObject.transform.Find("buildingType");
+        var numberOfChild = buildingType.gameObject.transform.childCount;
+        miniBuildingIco.Clear();
+        for (int i = 0; i < numberOfChild; i++)
+        {
+            var go = buildingType.GetChild(i);
+            miniBuildingIco.Add(go.gameObject);
+        }
+        var BCTCscirpt = GetComponent<BuildingCardToCanvas>();
+
+        _buildingCard = BCTCscirpt._buildingCard;
+
+        var tmpro = tasdasdaa.GetComponentInChildren<TextMeshProUGUI>();
+        tmpro.text = _buildingCard.resorceGenerationDuration.ToString() + "   Second\n" + _buildingCard.generatedGold.ToString() + "\n" + _buildingCard.generatedGem.ToString();
+        if (_buildingCard.shapeOfBuilding == BuildingCard.shapeOfBuildingType.Shape1)
+        {
+            for(int i = 0; i < miniBuildingIco.Count; i++)
+            {
+                if (i == 2)
+                {
+                    miniBuildingIco[i].SetActive(true);
+
+                }
+                else
+                {
+                    miniBuildingIco[i].SetActive(false);
+
+                }
+            }
+        }
+        else if (_buildingCard.shapeOfBuilding == BuildingCard.shapeOfBuildingType.Shape2)
+        {
+            for (int i = 0; i < miniBuildingIco.Count; i++)
+            {
+                if (i == 0 || i == 1) 
+                {
+                    miniBuildingIco[i].SetActive(true);
+
+                }
+                else
+                {
+                    miniBuildingIco[i].SetActive(false);
+
+                }
+            }
+
+        }
+        else if (_buildingCard.shapeOfBuilding == BuildingCard.shapeOfBuildingType.Shape3)
+        {
+            for (int i = 0; i < miniBuildingIco.Count; i++)
+            {
+                if (i == 0 || i == 1 || i == 2) 
+                {
+                    miniBuildingIco[i].SetActive(true);
+
+                }
+                else
+                {
+                    miniBuildingIco[i].SetActive(false);
+
+                }
+            }
+
+        }
+        else if (_buildingCard.shapeOfBuilding == BuildingCard.shapeOfBuildingType.Shape4)
+        {
+            for (int i = 0; i < miniBuildingIco.Count; i++)
+            {
+                if (i == 0 || i == 1 || i == 2 || i == 3) 
+                {
+                    miniBuildingIco[i].SetActive(true);
+
+                }
+                else
+                {
+                    miniBuildingIco[i].SetActive(false);
+
+                }
+            }
+
+        }
+        
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        var tasdasdaa = InfoWindow.transform.GetChild(0);
+        tasdasdaa.gameObject.SetActive(false);
+
+    }
 }
