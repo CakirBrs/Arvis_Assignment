@@ -44,8 +44,8 @@ public class BuildingResourceGenerationScript : MonoBehaviour
     private void AddCurrency()
     {
         var test = WorldSpaceToCanvas();
-        _currencyScript.GoldChange(generatedGold, test);
-        _currencyScript.GemChange(generatedGem, test);
+        _currencyScript.GoldChange(generatedGold, test,true);
+        _currencyScript.GemChange(generatedGem, test,true);
         
 
     }

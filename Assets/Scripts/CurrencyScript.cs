@@ -26,33 +26,45 @@ public class CurrencyScript : MonoBehaviour
         goldText.text = Gold.ToString();
         GemText.text = Gem.ToString();
     }
-    public void GoldChange(int amount,Vector3 position)
+    public void GoldChange(int amount,Vector3 position,bool isPositive)
     {
 
         if (amount != 0)
         {
             var sign = "";
-            if (amount > 0)
+            if (isPositive)
+            {
                 sign = "+";
-            if (amount < 0)
+                Gold += amount;
+
+            }
+            if (!isPositive)
+            {
                 sign = "-";
-            Gold += amount;
+                Gold -= amount;
+
+            }
             var floatingTextGO = Instantiate(FloatingTextPrefab, position, Quaternion.identity);
             floatingTextGO.transform.parent = GameObject.Find("/Canvas").transform;
             floatingTextGO.GetComponent<TextMeshProUGUI>().text = sign + amount.ToString()+"Gold";
         }
     }
-    public void GemChange(int amount, Vector3 position)
+    public void GemChange(int amount, Vector3 position, bool isPositive)
     {
         
         if (amount != 0)
         {
             var sign = "";
-            if (amount > 0)
+            if (isPositive)
+            {
                 sign = "+";
-            if (amount < 0)
+                Gem += amount;
+            }
+            if (!isPositive)
+            {
                 sign = "-";
-            Gem += amount;
+                Gem -= amount;
+            }
             var floatingTextGO = Instantiate(FloatingTextPrefab, position, Quaternion.identity);
             floatingTextGO.transform.parent = GameObject.Find("/Canvas").transform;
             floatingTextGO.GetComponent<TextMeshProUGUI>().text = sign + amount.ToString()+"Gem";
