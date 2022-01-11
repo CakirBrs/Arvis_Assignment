@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class BuildingResourceGenerationScript : MonoBehaviour
 {
@@ -13,7 +14,7 @@ public class BuildingResourceGenerationScript : MonoBehaviour
     private CurrencyScript _currencyScript;
     public GameObject sliderGO;
     private Slider slider;
-
+    private TextMeshProUGUI countdown;
     private void Start()
     {
         _currencyScript = GameObject.Find("/GameMaster").GetComponent<CurrencyScript>();
@@ -23,15 +24,20 @@ public class BuildingResourceGenerationScript : MonoBehaviour
         _time = 0f;
         slider = sliderGO.GetComponent<Slider>();
         slider.maxValue = generateTime;
+        countdown = sliderGO.transform.GetChild(2).gameObject.GetComponent<TextMeshProUGUI>();
+        countdown.text = generateTime.ToString();
     }
     private void Update()
     {
         _time += Time.deltaTime;
+        countdown.text = ((int)(generateTime + 1 - _time)).ToString();
         slider.value = _time;
         if(_time>= generateTime)
         {
             AddCurrency();
             _time = 0;
+            countdown.text = generateTime.ToString();
+
         }
     }
 

@@ -46,7 +46,8 @@ public class PrefabControl : MonoBehaviour
         {
             foreach(SpriteRenderer spriteRenderer in spirteList)
             {
-                spriteRenderer.color = Color.green;
+                spriteRenderer.color = new Color(Color.green.r,Color.green.g,Color.green.b,0.5f);
+
 
             }
         }
@@ -54,7 +55,8 @@ public class PrefabControl : MonoBehaviour
         {
             foreach (SpriteRenderer spriteRenderer in spirteList)
             {
-                spriteRenderer.color = Color.red;
+                spriteRenderer.color = new Color(Color.red.r, Color.red.g, Color.red.b, 0.5f);
+
 
             }
         }
