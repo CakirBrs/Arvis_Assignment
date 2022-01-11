@@ -272,7 +272,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _buildingCard: {fileID: 0}
-  sliderGO: {fileID: 0}
+  sliderGO: {fileID: 3540756126211020346, guid: 2c64dd7d09ae72f4aa06cba9f4c2f7fe, type: 3}
 --- !u!1 &5715408113411278930
 GameObject:
   m_ObjectHideFlags: 0

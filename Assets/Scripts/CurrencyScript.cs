@@ -15,11 +15,13 @@ public class CurrencyScript : MonoBehaviour
     private TextMeshProUGUI GemText;
     [SerializeField]
     private GameObject FloatingTextPrefab;
+    private SaveScript _saveScript;
     private void Start()
     {
-        Gold = 10;
-        Gem = 10;
         
+        _saveScript= GameObject.Find("/GameMaster").GetComponent<SaveScript>();
+
+
     }
     private void Update()
     {
@@ -31,6 +33,8 @@ public class CurrencyScript : MonoBehaviour
 
         if (amount != 0)
         {
+            _saveScript.Save();
+
             var sign = "";
             if (isPositive)
             {
@@ -54,6 +58,7 @@ public class CurrencyScript : MonoBehaviour
         
         if (amount != 0)
         {
+            _saveScript.Save();
             var sign = "";
             if (isPositive)
             {

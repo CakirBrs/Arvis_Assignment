@@ -568,6 +568,7 @@ GameObject:
   - component: {fileID: 342360151}
   - component: {fileID: 342360153}
   - component: {fileID: 342360154}
+  - component: {fileID: 342360155}
   m_Layer: 0
   m_Name: GameMaster
   m_TagString: Untagged
@@ -628,7 +629,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 5247b9ec13436484b954437237543cc7, type: 2}
   - {fileID: 11400000, guid: 09cb078d9ef72604bb4f1f10d44060a5, type: 2}
   - {fileID: 11400000, guid: 7e5649026b90ff643b48874db2f8e1c2, type: 2}
+  indexOfBuildingCardList: 
   cardPrefab: {fileID: 6896434486115197913, guid: 81e0a84c6dd02314b9b19c1794325f1a, type: 3}
+  buildingCardsGO: []
   NumberOfCards: 6
 --- !u!114 &342360154
 MonoBehaviour:
@@ -643,6 +646,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   infoWindow: {fileID: 1981331031}
+--- !u!114 &342360155
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 342360150}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2aeec33a4914a8e4cb36bb9e9192b21a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buildingsPositions: []
+  buildingsTypes: []
+  Prefab1x2x: {fileID: 1404589414926779720, guid: 02e09552bd4a01c46b57920a01bdf88a, type: 3}
+  Prefab2x: {fileID: 1404589414926779720, guid: 32c61a80cfb05a847bb6a4e0ef1a2d8d, type: 3}
+  Prefab2x2x: {fileID: 1404589414926779720, guid: 67e47c237a1991449ab452cd10aa1df5, type: 3}
+  Prefab3x2x: {fileID: 1404589414926779720, guid: a394e46614be40446841d261b3a82607, type: 3}
+  slider: {fileID: 3540756126211020346, guid: 2c64dd7d09ae72f4aa06cba9f4c2f7fe, type: 3}
 --- !u!1 &411349064
 GameObject:
   m_ObjectHideFlags: 0

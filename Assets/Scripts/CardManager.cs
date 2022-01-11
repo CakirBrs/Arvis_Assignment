@@ -4,39 +4,46 @@ using UnityEngine;
 
 public class CardManager : MonoBehaviour
 {
-    [SerializeField]
-    private List<BuildingCard> buildingCards = new List<BuildingCard>();
+    
+    public List<BuildingCard> buildingCards = new List<BuildingCard>();
+    public List<int> indexOfBuildingCardList = new List<int>();
     [SerializeField]
     private GameObject cardPrefab;
-    private List<GameObject> buildingCardsGO = new List<GameObject>();
     [SerializeField]
-    private int NumberOfCards;
+    private List<GameObject> buildingCardsGO = new List<GameObject>();
+    public int NumberOfCards;
 
-    private void Start()
-    {
-        for (int i = 1; i < NumberOfCards; i++)
-        {
-            
-            AddCard();
-        }
-
-    }
+   
 
     public void DeleteCard(GameObject gameObject)
     {
+        var index = buildingCardsGO.IndexOf(gameObject);
+        indexOfBuildingCardList.RemoveAt(index);
+        buildingCardsGO.Remove(gameObject);
         Destroy(gameObject);
-        AddCard();
+        AddCard(true,0);
     }
 
-    public void AddCard()
+    public void AddCard(bool isRandom,int indexOfBuildingCards)
     {
-        var randomInt = Random.Range(0, buildingCards.Count);
+        int indexInt;
+        if (isRandom)
+        {
+            indexInt = Random.Range(0, buildingCards.Count);
+            
+
+        }
+        else
+        {
+            indexInt = indexOfBuildingCards;
+        }
+
         var card = Instantiate(cardPrefab, new Vector3(0, 0, 0), Quaternion.identity);
         card.transform.parent = GameObject.Find("BuildingCardsHolder").transform;
         buildingCardsGO.Add(card);
-
-        card.name = "BuildingCard (" + card.GetInstanceID().ToString()+")";
-        card.GetComponent<BuildingCardToCanvas>()._buildingCard = buildingCards[randomInt];
+        indexOfBuildingCardList.Add(indexInt);
+        card.name = "BuildingCard (" + card.GetInstanceID().ToString() + ")";
+        card.GetComponent<BuildingCardToCanvas>()._buildingCard = buildingCards[indexInt];
 
     }
 }

@@ -7,6 +7,9 @@ public class RestartButtonScript : MonoBehaviour
 {
     public void Restart()
     {
+        PlayerPrefs.DeleteAll();
+
         SceneManager.LoadScene("Main");
+
     }
 }

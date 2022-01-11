@@ -27,10 +27,13 @@ public class DragNDrop : MonoBehaviour, IBeginDragHandler,IEndDragHandler,IDragH
     private GameObject InfoWindow;
     [SerializeField]
     private List<GameObject> miniBuildingIco = new List<GameObject>();
+    private SaveScript _saveScript;
+
     private void Start()
     {
         draggedIcon = GameObject.Find("draggedObj");
         InfoWindow = GameObject.Find("InfoWindow");
+        _saveScript = GameObject.Find("/GameMaster").GetComponent<SaveScript>();
 
     }
     public void OnBeginDrag(PointerEventData eventData)
@@ -100,8 +103,9 @@ public class DragNDrop : MonoBehaviour, IBeginDragHandler,IEndDragHandler,IDragH
             else
             {
                 var _cardManager = GameObject.Find("/GameMaster").GetComponent<CardManager>();
+                _saveScript.AddBuilding(_prefabControl.gameObject.transform.position, _buildingCard);
                 _cardManager.DeleteCard(transform.gameObject);
-                
+
             }
         }
     }

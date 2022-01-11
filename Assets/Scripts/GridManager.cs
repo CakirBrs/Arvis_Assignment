@@ -14,6 +14,7 @@ public class GridManager : MonoBehaviour
     private void Start()
     {
         GenerateGrid();
+
     }
     void GenerateGrid()
     {
@@ -29,6 +30,9 @@ public class GridManager : MonoBehaviour
             }
         }
         cam.transform.position = new Vector3(-3f+(float)width / 2 - 0.5f, (float)height / 2 - 0.5f, -10);
+        var _saveScript = GameObject.Find("/GameMaster").GetComponent<SaveScript>();
+        _saveScript.Begin();
+
     }
 
 

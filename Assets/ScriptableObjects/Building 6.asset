@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b53c70ce0cbdf540b20197eeff0832f, type: 3}
   m_Name: Building 6
   m_EditorClassIdentifier: 
-  name: test
+  name: f
   image: {fileID: 21300000, guid: 083731c90e6343b41b75a36f3f9b28d6, type: 3}
   costGold: 3
   costGem: 2
