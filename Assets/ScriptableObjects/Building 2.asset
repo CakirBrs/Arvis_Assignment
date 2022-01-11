@@ -19,4 +19,4 @@ MonoBehaviour:
   resorceGenerationDuration: 4
   generatedGold: 3
   generatedGem: 0
-  shapeOfBuilding: 1
+  shapeOfBuilding: 0
