@@ -6,6 +6,7 @@ using UnityEngine;
 public class BuildingCard : ScriptableObject
 {
     public new string name;
+    public int index;
     public Sprite image;
     public int costGold;
     public int costGem;

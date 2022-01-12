@@ -4,7 +4,12 @@ using UnityEngine;
 
 public class CardManager : MonoBehaviour
 {
-    
+    [Header("Settings:")]
+    public bool isRandomizedAndReplaceEachUsedCardWithNewCard;//If this flag is activated, cards will be randomly generated and used cards will be deleted.
+    public List<BuildingCard> buildingCardsWantedToBeUsed = new List<BuildingCard>(); //If the random flag is deactivated, this list should be filled with the cards to be used.
+
+    [Header("Do not touch:")]
+
     public List<BuildingCard> buildingCards = new List<BuildingCard>();
     public List<int> indexOfBuildingCardList = new List<int>();
     [SerializeField]
@@ -17,11 +22,15 @@ public class CardManager : MonoBehaviour
 
     public void DeleteCard(GameObject gameObject)
     {
-        var index = buildingCardsGO.IndexOf(gameObject);
-        indexOfBuildingCardList.RemoveAt(index);
-        buildingCardsGO.Remove(gameObject);
-        Destroy(gameObject);
-        AddCard(true,0);
+        if (isRandomizedAndReplaceEachUsedCardWithNewCard)
+        {
+            var index = buildingCardsGO.IndexOf(gameObject);
+            indexOfBuildingCardList.RemoveAt(index);
+            buildingCardsGO.Remove(gameObject);
+            Destroy(gameObject);
+            AddCard(true, 0);
+        }
+        
     }
 
     public void AddCard(bool isRandom,int indexOfBuildingCards)

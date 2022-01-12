@@ -11,12 +11,16 @@ public class BuildingCardToCanvas : MonoBehaviour
     private Image buildingCardBorder;
     private CurrencyScript _currencyScript;
     public bool isActive;
-
+    [SerializeField]
+    private TextMeshProUGUI nameText;
     void Start()
     {
         _currencyScript= GameObject.Find("/GameMaster").GetComponent<CurrencyScript>();
         buildingCardBorder = GetComponent<Image>();
+
         
+        nameText.text = "Building "+_buildingCard.name;
+
         transform.GetChild(0).gameObject.GetComponent<RawImage>().texture=_buildingCard.image.texture;
         var goldGO = transform.GetChild(1).GetChild(0).gameObject;
         var gemGO = transform.GetChild(1).GetChild(1).gameObject;

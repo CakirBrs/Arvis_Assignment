@@ -106,6 +106,13 @@ public class SaveScript : MonoBehaviour
                 _cardManager.AddCard(false, i);
             }
         }
+        else if (!_cardManager.isRandomizedAndReplaceEachUsedCardWithNewCard)
+        {
+            foreach(BuildingCard card in _cardManager.buildingCardsWantedToBeUsed)
+            {
+                _cardManager.AddCard(false, card.index);
+            }
+        }
         else
         {
             _currencyScript.Gold = 10;
@@ -142,8 +149,17 @@ public class SaveScript : MonoBehaviour
 
     private void LoadWorld(int gold,int gem,int NumberOfBuildings)
     {
-        _currencyScript.Gold = gold;
-        _currencyScript.Gem = gem;
+        if (NumberOfBuildings > 0)
+        {
+            _currencyScript.Gold = gold;
+            _currencyScript.Gem = gem;
+        }
+        else
+        {
+            _currencyScript.Gold = 10;
+            _currencyScript.Gem = 10;
+        }
+        
         for(int i = 0; i < NumberOfBuildings; i++)
         {
             var buildingType=DefineBuildingType(buildingsTypes[i]);

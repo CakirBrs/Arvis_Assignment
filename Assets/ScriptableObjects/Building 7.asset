@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Building 7
   m_EditorClassIdentifier: 
   name: g
+  index: 7
   image: {fileID: 21300000, guid: 118f9aa403857b641b7e0913925400d1, type: 3}
   costGold: 5
   costGem: 0
