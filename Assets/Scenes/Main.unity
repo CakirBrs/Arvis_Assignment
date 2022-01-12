@@ -621,6 +621,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f321e570769a6e428bb069e3306596f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isRandomizedAndReplaceEachUsedCardWithNewCard: 0
+  buildingCardsWantedToBeUsed:
+  - {fileID: 11400000, guid: 7e42f1e41032a4a4bbbe1fa302f01f7d, type: 2}
+  - {fileID: 11400000, guid: 90478b91853c1e74bb59b662f7571150, type: 2}
+  - {fileID: 11400000, guid: af8ef41e9381d1846822ecca110b47df, type: 2}
+  - {fileID: 11400000, guid: 5247b9ec13436484b954437237543cc7, type: 2}
+  - {fileID: 11400000, guid: 09cb078d9ef72604bb4f1f10d44060a5, type: 2}
+  - {fileID: 11400000, guid: 7e5649026b90ff643b48874db2f8e1c2, type: 2}
   buildingCards:
   - {fileID: 11400000, guid: d4b28df496b60d6499714ff25d409018, type: 2}
   - {fileID: 11400000, guid: 7e42f1e41032a4a4bbbe1fa302f01f7d, type: 2}
